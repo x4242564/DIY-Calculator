@@ -1,4 +1,4 @@
-# Calculator-via-DIY-Math-Interpreter
+# DIY-Calculator
 
 ## Overview
 
