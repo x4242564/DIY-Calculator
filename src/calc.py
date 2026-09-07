@@ -9,12 +9,10 @@ from logger import log, verbose_log, error_log
 ap = argparse.ArgumentParser()
 
 ap.add_argument("--debug", "--d", action = "store_true", help="Sets debug mode (optional)")
-
 args = ap.parse_args()
 
 log(f"Debug mode: {args.debug}")
 verbose_log(f"Verbose logging: {logger.isVerbose}")
-
 
 calculation = ''
 eval = ''
@@ -30,12 +28,8 @@ class App(ctk.CTk):
 
         self.title('DIY Calculator')
 
-        if debug:
-            self.minsize(500,290)
-            self.geometry("500x290")
-        else:
-            self.minsize(265,290)
-            self.geometry("265x290")
+        self.minsize(590,290)
+        self.geometry("590x290")
 
         self.grid_columnconfigure([0,1], weight = 1)
         self.grid_columnconfigure([2], weight = 2)
