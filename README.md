@@ -84,17 +84,10 @@ cd src
 python calc.py
 ```
 
-You can also run the tests from the project root. The `math_interpreter` package lives under
-`src/`, so `src` needs to be on `PYTHONPATH`:
+You can also run the automated tests with
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s test -p "*_test.py"
-```
-
-On Windows PowerShell:
-
-```powershell
-$env:PYTHONPATH = "src"
+cd src
 python -m unittest discover -s test -p "*_test.py"
 ```
 
