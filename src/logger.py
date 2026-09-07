@@ -10,11 +10,7 @@ formatter = logging.Formatter("[%(tag)s] %(message)s")
 terminal_handler = logging.StreamHandler(sys.stdout)
 terminal_handler.setFormatter(formatter)
 
-file_handler = logging.FileHandler("app_terminal.log")
-file_handler.setFormatter(formatter)
-
 logger.addHandler(terminal_handler)
-logger.addHandler(file_handler)
 
 isLogging = True
 isVerbose = True
@@ -36,7 +32,6 @@ color = {
     "nodes.py" : ansi["YELLOW"],
     "interpreter.py" : ansi["BLUE"],
 }
-
 
 def log(text):
     '''For making INFO logs'''
