@@ -1,7 +1,7 @@
 import unittest
-from tokens import Token, TokenType
-from parser_ import Parser
-from nodes import *
+from math_interpreter.tokens import Token, TokenType
+from math_interpreter.parser_ import Parser
+from math_interpreter.nodes import *
 
 class TestParser(unittest.TestCase):
 

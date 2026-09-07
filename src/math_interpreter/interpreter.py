@@ -1,5 +1,5 @@
-from nodes import *
-from values import Number
+from .nodes import *
+from .values import Number
 from logger import verbose_log, log
 
 class Interpreter:
@@ -10,7 +10,6 @@ class Interpreter:
         return method(node)
     
     def visit_NumberNode(self, node):
-        verbose_log(f"Number visited {node.value}")
         return Number(node.value)
     
     def visit_AddNode(self, node):

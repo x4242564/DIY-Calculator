@@ -84,11 +84,11 @@ cd src
 python calc.py
 ```
 
-You can also run the tests with:
+You can also run the automated tests with
 
 ```bash
 cd src
-python -m unittest lexer_test parser_test interpreter_test
+python -m unittest discover -s test -p "*_test.py"
 ```
 
 ## Summary

@@ -1,19 +1,17 @@
-from lexer import Lexer
-from parser_ import Parser
-from interpreter import Interpreter
+from math_interpreter import lexer, parser_, interpreter
 
-from logger import log, verbose_log
+from logger import log, error_log, verbose_log
 import traceback
 import os
 
-def calculate(text):
+def evaluate(text):
     try:
-        lexer = Lexer(text)
-        tokens = lexer.generate_tokens()
-        parser = Parser(tokens)
+        lex = lexer.Lexer(text)
+        tokens = lex.generate_tokens()
+        parser = parser_.Parser(tokens)
         tree = parser.parse()
-        interpreter = Interpreter()
-        value = interpreter.visit(tree)
+        interp = interpreter.Interpreter()
+        value = interp.visit(tree)
         log(f"calculated result: {value}")
         if value.is_integer():
             value.int()  # Removes decimal point if the value is an integer
@@ -28,7 +26,7 @@ def calculate(text):
         filename = os.path.basename(code.co_filename)
         line_number = tb.tb_lineno
         function_name = code.co_name
-        log(f"{os.path.splitext(filename)[0]} ERROR {e}")
+        error_log(f"{e} ({os.path.splitext(filename)[0]})")
         verbose_log(f"Error origin: {filename} {function_name}() Line: {line_number}")
 
 def main():
@@ -36,7 +34,7 @@ def main():
     while True:
         equation = input("enter equation (\"q\" to quit): ")
         if equation == "q": break
-        eval = calculate(equation)
+        eval = evaluate(equation)
         if eval: print(f'{equation} = {eval}\n')
 
 if __name__ == "__main__":

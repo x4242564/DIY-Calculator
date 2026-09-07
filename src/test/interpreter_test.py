@@ -1,10 +1,13 @@
 import unittest
-from nodes import *
-from interpreter import Interpreter
-from values import Number
+from math_interpreter.nodes import *
+from math_interpreter.interpreter import Interpreter
+from math_interpreter.values import Number
 
 
 class TestInterpreter(unittest.TestCase):
+
+    def __int__(self):
+        pass
 
     def test_number_node(self):
         value = Interpreter().visit(NumberNode(42.42))

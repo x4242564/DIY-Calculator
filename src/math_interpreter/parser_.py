@@ -1,5 +1,5 @@
-from tokens import TokenType
-from nodes import *
+from .tokens import TokenType
+from .nodes import *
 from logger import verbose_log, log
 
 class Parser:

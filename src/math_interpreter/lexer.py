@@ -1,4 +1,4 @@
-from tokens import Token, TokenType
+from .tokens import Token, TokenType
 from logger import log, verbose_log
 
 WHITESPACE = ' \n\t' # space, new line, and tab characters
@@ -8,13 +8,15 @@ class Lexer:
     '''Writes and feeds tokens to the parser one by one'''
     def __init__(self, text):
         self.text = iter(text) # breaks text down into items in a list
+        self.current_char = None
         self.advance() # advances to the first character in the text
 
     def advance(self):
         '''Advances to next character until the end of the text or an error occurs'''
         try:
+            if self.current_char != None:
+                verbose_log(f"Current char: {self.current_char}")
             self.current_char = next(self.text)
-            verbose_log(f"current char: {self.current_char}")
         except StopIteration:
             self.current_char = None
 
