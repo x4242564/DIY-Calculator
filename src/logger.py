@@ -48,7 +48,8 @@ def verbose_log(text):
 
 def error_log(text):
     '''For making ERROR logs'''
-    logger.error(text, extra={"tag": f"{ansi['RED']}ERROR{ansi['RESET']}"})
+    if isLogging:
+        logger.error(text, extra={"tag": f"{ansi['RED']}ERROR{ansi['RESET']}"})
 
 _log_view = None
 
